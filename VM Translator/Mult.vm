@@ -1,0 +1,69 @@
+// Calculates a = x*y
+// a is a local variable
+// x & y are static variables
+
+// Additional Notes: index = local 1
+
+// setting a (local 0) to 0
+push constant 0
+pop local 0
+
+// temp variable local 2 that has y value
+push static 1
+pop local 2
+
+// index = local 1, using Abs.vm code
+push constant 0
+push static 0
+lt
+
+// if false, negates x
+if-goto NOTNEGATION
+push static 0
+neg
+pop local 1
+
+label NOTNEGATION
+push static 0
+pop local 1
+goto WHILELOOP
+
+// using while loop to multiply x & y
+label WHILELOOP
+  // checks if x is 0, ends loop if true
+  push constant 0
+  push local 1
+  eq
+  if-goto ENDLOOP
+
+  // adding temp var (local 2) to a (local 0)
+  push local 2
+  push local 0
+  add
+  pop local 0
+
+  // subtracting 1 from index (iterations)
+  push local 1
+  push constant 1
+  sub
+  pop local 1
+
+goto WHILELOOP // loop restarts
+
+// when y has been added x times
+label ENDLOOP
+  push constant 2
+  pop local 1
+
+// adds correct sign to final result
+push static 0
+push constant 0
+gt
+
+if-goto END
+push local 0
+neg
+pop local 0
+
+label END
+goto END

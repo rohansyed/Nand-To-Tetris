@@ -1,0 +1,58 @@
+// Contains a function ArrMax.arrMax that finds and returns the largest element in the array a of length b.
+// a & b are both supplied as arguments
+
+// creating function with 2 local variables
+function ArrMax.arrMax 2
+// setting array a into pointer for access
+push argument 0
+pop pointer 0
+
+// accessing array at index 0 (array[0])
+push this 0
+
+// setting local 0 to length b
+push argument 1
+pop local 0
+
+// setting local 1 to current maximum element
+push this 0
+pop local 1
+
+//using while loop to
+label WHILELOOP
+  // base case, length (b) is 0
+  push local 0
+  push constant 0
+  eq
+  if-goto ENDLOOP
+
+  // while length isn't 0, compare maximum element to current element
+  push this 0
+  push local 1
+  gt
+  if-goto IS_HIGHER
+
+  // subtracting 1 from temporary var
+  push local 0
+  push constant 1
+  sub
+  pop local 0
+  goto INCREMENTATION
+
+// case where current element is larger that current maximum
+label IS_HIGHER
+  push this 0
+  pop local 1
+
+label INCREMENTATION
+  push pointer 0
+  push constant 1
+  add
+  pop pointer 0
+  goto WHILELOOP
+
+// returns largest element 
+label ENDLOOP
+  push local 1
+  return
+

@@ -1,0 +1,20 @@
+// VM Translator test case 2 for LABEL Method
+
+// testing label functionality through absolute element calculation
+push constant 0
+push static 0
+lt
+
+// if false, negates x
+if-goto NOTNEGATION
+push static 0
+neg
+pop static 1
+goto END
+
+label NOTNEGATION
+push static 0
+pop static 1
+
+label END
+goto END

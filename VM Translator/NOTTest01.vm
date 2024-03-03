@@ -1,0 +1,4 @@
+// VM Translator test case 1 for NOT Method
+push static 0
+not
+pop static 0

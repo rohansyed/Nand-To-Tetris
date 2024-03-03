@@ -1,0 +1,5 @@
+// VM Translator test case 1 for AND Method
+push static 0
+push static 1
+and
+pop static 0

@@ -1,0 +1,21 @@
+// Calculates y = |x|
+// x & y are static variables
+
+// pushes x & 0 onto stack, checks if x < 0, jump to label
+push constant 0
+push static 0
+lt
+
+// if false, negates x
+if-goto NOTNEGATION
+push static 0
+neg
+pop static 1
+goto END
+
+label NOTNEGATION
+push static 0
+pop static 1
+
+label END
+goto END

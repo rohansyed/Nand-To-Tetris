@@ -1,0 +1,5 @@
+// VM Translator test case 1 for PUSH Method
+push constant 0
+push constant 0
+add
+pop static 0

@@ -1,0 +1,6 @@
+// VM Translator test case 1 for LABEL Method
+push constant 0
+label LOOP
+push constant 5
+add
+goto LOOP

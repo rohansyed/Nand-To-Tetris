@@ -1,0 +1,20 @@
+// VM Translator test case 2 for IF Method
+push constant 1
+push constant 2
+gt
+if-goto JUMPONE
+
+label JUMPTWO
+push constant 1000
+push constant 2000
+add
+goto END
+
+label JUMPONE
+add
+push constant 4
+lt
+if-goto JUMPTWO
+
+label END
+goto END

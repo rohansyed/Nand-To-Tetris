@@ -1,0 +1,14 @@
+// VM Translator test case 1 for GOTO Method
+push constant 1
+goto JUMPONE
+
+label JUMPTWO
+push constant 2
+goto END
+
+label JUMPONE
+pop constant 1
+goto JUMPTWO
+
+label END
+goto END
